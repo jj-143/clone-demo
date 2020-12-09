@@ -1,0 +1,141 @@
+.nav {
+  position: fixed;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  min-width: 1366px;
+}
+
+.menuBar {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.menuBar:after {
+  position: absolute;
+  top: 80px;
+  height: 1px;
+  background-color: hsla(0, 0%, 47.1%, 0.2);
+  content: "";
+  left: 0;
+  right: 0;
+}
+.menuBar:global(.open) {
+  background-color: white;
+  color: black;
+}
+
+.bi {
+  width: 25%;
+  padding: 20px 40px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+.bi a {
+  display: block;
+  padding: 0 9px;
+}
+.bi img {
+  height: 40px;
+  object-fit: contain;
+}
+.bi img:global(.on) {
+  display: none;
+}
+:global(.open) .bi img {
+  display: none;
+}
+:global(.open) .bi img:global(.on) {
+  display: block;
+}
+
+.menu {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.category {
+  display: flex;
+  flex-flow: column;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.category:first-child {
+  margin-left: -50px;
+}
+
+.category > a {
+  padding: 28px 50px;
+  line-height: 24px;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.menuBar:not(:global(.open)) .category.active > a:before,
+.category:hover > a:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 30px;
+  right: 30px;
+  height: 3px;
+  background-color: #ffd200;
+}
+
+/* submenu */
+
+.category > ul {
+  display: none;
+  padding: 18px 0;
+}
+
+:global(.open) .category > ul,
+.menu:hover .category > ul {
+  display: unset;
+}
+
+.category > ul > li {
+  padding: 12px 0 12px 50px;
+  text-transform: capitalize;
+  font-size: 16px;
+  line-height: 24px;
+  color: #787878;
+}
+
+.category > ul > li:hover {
+  color: #3c3c3c;
+  text-decoration: underline;
+}
+
+/* language menu */
+.languageMenu {
+  display: flex;
+  height: 24px;
+  line-height: 24px;
+  padding: 28px 0 9px;
+  margin-left: auto;
+  margin-right: 50px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.languageMenu > li {
+  color: #878787;
+}
+
+.languageMenu > :global(li.active),
+.languageMenu > li:hover {
+  color: yellow;
+}
+
+.languageMenu > li:not(:last-of-type):after {
+  content: "|";
+  padding: 10px;
+}

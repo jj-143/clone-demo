@@ -1,0 +1,210 @@
+.main {
+  color: blue !important;
+  background-color: #141414;
+  min-width: 1366px;
+
+  /* for the footer effect */
+  z-index: 3;
+  position: relative;
+  margin-bottom: 467px;
+}
+
+.main section {
+  margin: 0 25% 0;
+  color: white;
+}
+
+.main section:not(:global(.next)) {
+  padding-bottom: 400px;
+}
+
+.main section article {
+  margin-top: 200px;
+}
+
+.main section :global(.title) {
+  display: flex;
+}
+.main section :global(.left) :global(.title):after {
+  flex: 1;
+  overflow: hidden;
+  height: 4px;
+  margin-left: 30px;
+  margin-top: 20px;
+  background-color: #ffd200;
+  content: "";
+}
+
+.main section :global(.right) :global(.title) {
+  text-align: right;
+}
+.main section :global(.right) :global(.title):before {
+  flex: 1;
+  overflow: hidden;
+  height: 4px;
+  margin-right: 30px;
+  margin-top: 20px;
+  background-color: #ffd200;
+  content: "";
+}
+
+.main section :global(.full) {
+  margin: 0 -50% 0;
+  position: relative;
+  height: 600px;
+  margin-top: 100px;
+}
+
+.main section :global(.desc) {
+  margin-top: 100px;
+  margin-right: 40px;
+  font-size: 14px;
+  line-height: 28px;
+}
+.main section :global(.desc) > p:not(:last-of-type) {
+  margin-bottom: 28px;
+}
+
+.main section :global(.desc.right) {
+  position: relative;
+  left: 100%;
+}
+
+.main section article:global(.left) {
+  width: 50%;
+}
+
+.main section article:global(.right) {
+  width: 50%;
+  margin-left: 50%;
+}
+
+/* sections */
+.left {
+  width: 50%;
+}
+.right {
+  margin-left: 50%;
+}
+
+.main section:global(.next) {
+  margin: 0;
+  color: #787878;
+  background-color: rgba(0, 0, 0, 0.2);
+  margin: unset;
+  display: flex;
+  padding: 150px 0 179px;
+}
+
+.main section:global(.next) > div {
+  width: 25%;
+}
+.main section:global(.next) h3 {
+  box-sizing: border-box;
+  padding-left: 50px;
+  font-size: 14px;
+  letter-spacing: -0.05em;
+  color: white;
+  font-weight: 400;
+}
+.main section:global(.next) > div {
+  overflow: hidden;
+}
+
+/* section next */
+.main section:global(.next) :global(.link) {
+  display: block;
+  transform: translateX(-5%);
+  color: white;
+  opacity: 0.3;
+  transition: transform 0.3s, opacity 0.3s;
+  margin-top: 18px;
+  font-size: 67px;
+  line-height: 165px;
+  font-weight: 700;
+}
+.main section:global(.next) :global(.link):hover {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.flex {
+  display: flex;
+}
+
+.vrs > span {
+  position: fixed;
+  top: 80px;
+  bottom: 0;
+  width: 1px;
+  background: #787878;
+  opacity: 0.2;
+}
+
+.vrs > span:nth-child(1) {
+  left: 25%;
+}
+.vrs > span:nth-child(2) {
+  left: 50%;
+}
+.vrs > span:nth-child(3) {
+  left: 75%;
+}
+
+@media (max-width: 1366px) {
+  .vrs > span:nth-child(1) {
+    left: 341px;
+  }
+  .vrs > span:nth-child(2) {
+    left: 684px;
+  }
+  .vrs > span:nth-child(3) {
+    left: 1024px;
+  }
+}
+
+:global(.parallax_1) {
+  background-image: url("../../assets/company_visual01.png");
+  background-repeat: no-repeat;
+}
+
+.cat {
+  background-image: url("../../assets/aa.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* scroll revealing effect */
+.hide {
+  opacity: 0;
+}
+
+.revealVertical {
+  animation: animation-vertical 0.8s ease both;
+}
+
+.revealRight {
+  animation: animation-right 0.8s ease both;
+}
+
+@keyframes animation-vertical {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes animation-right {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}

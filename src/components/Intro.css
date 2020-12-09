@@ -1,0 +1,53 @@
+.breadcrumbs {
+  list-style: none;
+  display: flex;
+}
+.breadcrumbs > li {
+  color: white;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+.breadcrumbs > li:not(:last-of-type):after {
+  content: ">";
+  color: yellow;
+  margin: 10px;
+}
+.breadcrumbs.inactive > li {
+  color: #787878;
+}
+.breadcrumbs.inactive > li:not(:last-of-type):after {
+  color: #787878;
+}
+
+.intro {
+  background-image: url("../assets/aa.jpg");
+  background-size: cover;
+  padding: 170px 25% 196px;
+  height: 373px;
+  position: relative;
+}
+.intro::after {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  height: 100px;
+  margin-left: 50%;
+  content: "";
+  background-color: #141414;
+}
+
+.feature {
+  position: relative;
+  z-index: 10;
+}
+.feature h1 {
+  text-transform: capitalize;
+  font-size: 110px;
+  color: white;
+  margin: 0;
+  margin-top: 30px;
+  font-weight: 700;
+  line-height: 123px;
+}

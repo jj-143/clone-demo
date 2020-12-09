@@ -1,0 +1,31 @@
+.bigtitle {
+  font-size: 72px;
+  line-height: 87px;
+}
+.bigtitle:after {
+  margin-top: 47px !important;
+}
+
+h3.bigtitle:not(:first-of-type) {
+  margin-top: 200px;
+}
+
+.year {
+  display: flex;
+}
+.year > div {
+  flex: 1;
+}
+.year h2 {
+  padding-right: 40px;
+}
+
+.shortDesc {
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+.longDesc {
+  color: #787878;
+  margin-bottom: 40px;
+  line-height: 28px;
+}
