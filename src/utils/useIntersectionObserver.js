@@ -1,32 +1,34 @@
-import { useRef, useEffect, useCallback } from "react"
+import { useRef, useEffect } from "react"
 
-export function useIntersectionObserver(clsHide, clsReveal) {
-  let observer = useRef()
-  let hide = useRef(clsHide)
-  let reveal = useRef(clsReveal)
+export function useIntersectionObserver(clsHide, clsReveal, compName) {
+  const observer = useRef()
+  const entriesRef = useRef([])
 
-  const callback = useCallback(entries => {
+  const callback = entries => {
     entries.forEach(entry => {
       if (entry.intersectionRatio > 0.5) {
-        entry.target.classList.add(reveal.current)
+        entry.target.classList.add(clsReveal)
       } else if (entry.intersectionRatio <= 0) {
-        entry.target.classList.remove(reveal.current)
+        entry.target.classList.remove(clsReveal)
       }
     })
-  })
+  }
 
-  const observe = useCallback(elm => {
-    if (!elm || !observer.current) return
-
-    Array.from(elm.children).forEach(el => {
-      el.classList.add(hide.current)
-      observer.current.observe(el)
-    })
-  })
+  const observe = elm => {
+    if (!elm || entriesRef.current.includes(elm)) return
+    entriesRef.current.push(elm)
+  }
 
   useEffect(() => {
     observer.current = new IntersectionObserver(callback, {
       threshold: [0, 0.5],
+    })
+
+    entriesRef.current.forEach(elm => {
+      Array.from(elm.children).forEach(el => {
+        el.classList.add(clsHide)
+        observer.current.observe(el)
+      })
     })
   }, [])
 
